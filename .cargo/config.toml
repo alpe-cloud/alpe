@@ -1,0 +1,16 @@
+[alias]
+t = "test -p alpe-core"
+ti = "test -p alpe-api"
+ta = "test --workspace"
+d = "doc --workspace --no-deps --open"
+
+# Use mold linker on Linux for faster linking.
+# Uncomment the appropriate section for your OS:
+
+# [target.x86_64-unknown-linux-gnu]
+# linker = "clang"
+# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+
+# [target.aarch64-unknown-linux-gnu]
+# linker = "clang"
+# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
