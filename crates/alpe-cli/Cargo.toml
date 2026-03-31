@@ -1,0 +1,33 @@
+[package]
+name = "alpe-cli"
+description = "Command-line interface for the Alpe platform"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "alpe"
+path = "src/main.rs"
+
+[dependencies]
+alpe-core = { path = "../alpe-core" }
+alpe-sdk = { path = "../alpe-sdk" }
+anyhow = { workspace = true }
+clap = { workspace = true }
+comfy-table = { workspace = true }
+dialoguer = { workspace = true }
+dirs = { workspace = true }
+indicatif = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+toml = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[lints]
+workspace = true
