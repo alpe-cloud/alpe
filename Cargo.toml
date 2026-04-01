@@ -72,6 +72,11 @@ strum = { version = "0.28.0", features = ["derive"] }
 toml = "1.1.0"
 dirs = "6.0.0"
 
+# Internal crates (path for local dev, version for crates.io publishing)
+alpe-core = { path = "crates/alpe-core", version = "0.1.0" }
+alpe-auth = { path = "crates/alpe-auth", version = "0.1.0" }
+alpe-sdk = { path = "crates/alpe-sdk", version = "0.1.0" }
+
 # Testing
 testcontainers = "0.27.2"
 testcontainers-modules = { version = "0.15.0", features = ["postgres"] }
