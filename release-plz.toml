@@ -7,8 +7,8 @@
 #   - feat!: ...       → major bump (0.1.0 → 1.0.0 or 1.0.0 → 2.0.0)
 
 [workspace]
-# Don't publish to crates.io — these are internal platform crates
-publish = false
+# Publish to crates.io
+publish = true
 # Create GitHub releases with changelogs
 git_release_enable = true
 # Add the "release" label to release PRs for easy filtering
@@ -42,6 +42,8 @@ version_group = "alpe"
 [[package]]
 name = "alpe-cli"
 version_group = "alpe"
+# CLI is distributed as a binary, not a library crate
+publish = false
 
 [[package]]
 name = "alpe-sdk"
@@ -50,8 +52,9 @@ version_group = "alpe"
 [[package]]
 name = "alpe-test"
 version_group = "alpe"
-# Test harness is never released
+# Test harness is never released or published
 release = false
+publish = false
 git_release_enable = false
 git_tag_enable = false
 
