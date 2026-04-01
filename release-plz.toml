@@ -1,0 +1,89 @@
+# release-plz configuration
+# See: https://release-plz.dev/docs/config
+#
+# release-plz reads conventional commits to determine version bumps:
+#   - feat(scope): ... → minor bump (0.1.0 → 0.2.0)
+#   - fix(scope): ...  → patch bump (0.1.0 → 0.1.1)
+#   - feat!: ...       → major bump (0.1.0 → 1.0.0 or 1.0.0 → 2.0.0)
+
+[workspace]
+# Don't publish to crates.io — these are internal platform crates
+publish = false
+# Create GitHub releases with changelogs
+git_release_enable = true
+# Add the "release" label to release PRs for easy filtering
+pr_labels = ["release"]
+# Always include breaking change commits in the changelog
+# even if they would otherwise be filtered
+changelog_update = true
+# Tag format: crate-name-vX.Y.Z
+git_tag_name = "{{ package }}-v{{ version }}"
+# Release name: Crate Name vX.Y.Z
+git_release_name = "{{ package }} v{{ version }}"
+# Run semver checks to catch accidental API breaking changes
+semver_check = false
+# When 0.x, treat feat commits as minor (not patch) bumps
+features_always_increment_minor = true
+
+# Keep all crates at the same version for now.
+# When a commit touches any crate, all crates in the group get the same bump.
+[[package]]
+name = "alpe-core"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-api"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-auth"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-cli"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-sdk"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-test"
+version_group = "alpe"
+# Test harness is never released
+release = false
+git_release_enable = false
+git_tag_enable = false
+
+[[package]]
+name = "alpe-operator-db"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-operator-storage"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-operator-app"
+version_group = "alpe"
+
+[[package]]
+name = "alpe-substrate"
+version_group = "alpe"
+
+[changelog]
+# Protect breaking change commits — they always appear in the changelog
+protect_breaking_commits = true
+# Group commits by type in the changelog
+commit_parsers = [
+    { message = "^feat", group = "🚀 Features" },
+    { message = "^fix", group = "🐛 Bug Fixes" },
+    { message = "^docs", group = "📚 Documentation" },
+    { message = "^perf", group = "⚡ Performance" },
+    { message = "^refactor", group = "🔨 Refactoring" },
+    { message = "^test", group = "🧪 Testing" },
+    { message = "^ci", group = "⚙️ CI/CD" },
+    { message = "^chore", group = "🧹 Miscellaneous" },
+    { message = "^build", group = "🏗️ Build" },
+    { message = "^style", skip = true },
+]
