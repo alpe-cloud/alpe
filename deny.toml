@@ -49,8 +49,10 @@ ignore = true
 [bans]
 # Warn on multiple versions of the same crate (deny is too strict early on)
 multiple-versions = "warn"
-# Deny wildcard dependencies
+# Deny wildcard dependencies (but allow path deps — workspace crates
+# that are never published don't need version constraints)
 wildcards = "deny"
+allow-wildcard-paths = true
 
 # ─── Sources ──────────────────────────────────────────────────────────────────
 [sources]
