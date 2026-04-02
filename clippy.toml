@@ -1,1 +1,50 @@
+# ─── Clippy Configuration ─────────────────────────────────────────────────────
+#
+# Threshold-based configuration for Clippy lints in the Alpe workspace.
+# Lint levels (deny/warn/allow) are set in `Cargo.toml` under
+# `[workspace.lints.clippy]`; this file controls *only* the numeric
+# thresholds that tune those lints.
+#
+# Reference: https://doc.rust-lang.org/clippy/lint_configuration.html
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Minimum supported Rust version — keeps Clippy from suggesting APIs
+# or patterns that require a newer toolchain.
 msrv = "1.88.0"
+
+# ─── Complexity Thresholds ────────────────────────────────────────────────────
+#
+# These guard against functions that are hard to read, test, or review.
+# Values below are stricter than Clippy defaults to enforce small,
+# focused functions from day one.
+
+# Cognitive complexity measures branching/nesting depth.
+# Default: 25 → lowered to 15.
+cognitive-complexity-threshold = 15
+
+# Maximum lines per function body (excluding blank lines and comments).
+# Default: 100 → lowered to 60.
+too-many-lines-threshold = 60
+
+# Maximum positional parameters before suggesting a builder or struct.
+# Default: 7 → lowered to 5.
+too-many-arguments-threshold = 5
+
+# ─── Type Size Thresholds ─────────────────────────────────────────────────────
+#
+# Large types on the stack hurt cache locality and can blow up async
+# task sizes. These thresholds surface warnings early so we box or
+# refactor before the problem compounds.
+
+# Maximum byte size of a Future before `large_futures` fires.
+# Default: 16 384 → lowered to 8 192.
+future-size-threshold = 8192
+
+# Maximum byte size of an error type before `result_large_err` fires.
+# Default: 128 → raised to 256 (our error enums carry context strings).
+large-error-threshold = 256
+
+# Maximum byte-size difference between enum variants before
+# `large_enum_variant` fires, suggesting Box for the heavy arm.
+# Default: 200 → lowered to 128.
+enum-variant-size-threshold = 128

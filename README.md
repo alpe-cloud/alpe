@@ -1,5 +1,9 @@
 # Alpe
 
+[![CI](https://github.com/alpe-cloud/alpe/actions/workflows/ci.yml/badge.svg)](https://github.com/alpe-cloud/alpe/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/alpe-cloud/alpe/graph/badge.svg)](https://codecov.io/gh/alpe-cloud/alpe)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 **Sovereign cloud platform for Europe.** Managed services on European infrastructure, under European law, in open source.
 
 Alpe provides managed compute, database, and storage resources with built-in sovereignty guarantees. Every resource is tagged with a jurisdiction, and the platform enforces that data never leaves its designated EU member state.
@@ -57,6 +61,33 @@ Defined in `.cargo/config.toml` for fast development loops:
 | `cargo ti` | `cargo test -p alpe-api` | Integration tests |
 | `cargo ta` | `cargo test --workspace` | Run everything |
 | `cargo d` | `cargo doc --workspace --no-deps --open` | Local doc preview |
+
+## Contributing
+
+### Pre-commit Hooks
+
+This project uses [pre-commit](https://pre-commit.com/) to run quality checks before each commit:
+
+```bash
+# Install pre-commit (one-time) — pick one:
+brew install pre-commit      # macOS
+pipx install pre-commit      # cross-platform
+
+# Install the git hooks (one-time, per clone)
+pre-commit install
+
+# Run all hooks manually
+pre-commit run --all-files
+```
+
+The hooks enforce: formatting (`cargo fmt`), linting (`cargo clippy`), documentation builds, and dependency policy (`cargo deny`).
+
+### Quality Tools
+
+| Tool | Purpose | Install |
+|------|---------|---------|
+| `cargo-deny` | License, advisory, and dependency policy | `cargo install cargo-deny` |
+| `cargo-machete` | Detect unused dependencies | `cargo install cargo-machete` |
 
 ## Documentation
 

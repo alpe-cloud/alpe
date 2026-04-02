@@ -27,7 +27,7 @@ jobs:
         run: cargo fmt --check
 
       - name: Run Clippy
-        run: cargo clippy --workspace --locked -- -D warnings
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
 
   test:
     name: Test & Coverage
@@ -62,7 +62,14 @@ jobs:
         env:
           DATABASE_URL: postgres://alpe:alpe_test@localhost:5432/alpe_test
 
-      - name: Upload coverage report
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: lcov.info
+          fail_ci_if_error: false
+
+      - name: Upload coverage artifact
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
@@ -112,3 +119,26 @@ jobs:
           name: alpe-cli
           path: target/release/alpe
           retention-days: 14
+
+  quality-gate:
+    name: Quality Gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        run: rustup show
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install cargo-deny
+        uses: taiki-e/install-action@cargo-deny
+
+      - name: Install cargo-machete
+        uses: taiki-e/install-action@cargo-machete
+
+      - name: Check dependencies (advisories, licenses, bans, sources)
+        run: cargo deny check
+
+      - name: Check unused dependencies
+        run: cargo machete

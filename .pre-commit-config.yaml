@@ -1,0 +1,50 @@
+# Pre-commit hooks for the Alpe workspace.
+# Install: brew install pre-commit && pre-commit install
+# Run all: pre-commit run --all-files
+# See: https://pre-commit.com
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+
+  - repo: local
+    hooks:
+      - id: cargo-fmt
+        name: cargo fmt
+        description: Enforce Rust formatting (rustfmt)
+        entry: cargo fmt --all -- --check
+        language: system
+        types: [rust]
+        pass_filenames: false
+
+      - id: cargo-clippy
+        name: cargo clippy
+        description: Lint Rust code with Clippy (deny warnings)
+        entry: cargo clippy --workspace --all-targets --locked -- -D warnings
+        language: system
+        types: [rust]
+        pass_filenames: false
+
+      - id: cargo-doc
+        name: cargo doc
+        description: Ensure documentation builds without warnings
+        entry: env RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked
+        language: system
+        types: [rust]
+        pass_filenames: false
+
+      - id: cargo-deny
+        name: cargo deny
+        description: Check dependency licenses, advisories, and bans
+        entry: cargo deny check
+        language: system
+        pass_filenames: false
+        files: (Cargo\.toml|Cargo\.lock|deny\.toml)$

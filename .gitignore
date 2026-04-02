@@ -13,9 +13,10 @@ target/
 # Contains mutation testing data
 **/mutants.out*/
 
-# IDE artifacts
+# IDE and tooling artifacts
 .idea/
 .vscode/
+.agents/
 *.swp
 *.swo
 *~
