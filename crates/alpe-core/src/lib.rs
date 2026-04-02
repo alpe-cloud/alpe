@@ -8,7 +8,7 @@
 //!
 //! ## Modules
 //!
-//! - [`error`] — Unified error hierarchy (`CoreError`, `ValidationError`, `TransitionError`)
+//! - [`error`] — Unified error hierarchy ([`error::CoreError`], [`error::ValidationError`], [`error::TransitionError`])
 //! - [`jurisdiction`] — EU member state types and sovereignty replication rules
 //! - [`resource`] — Resource state machine and metadata
 //! - [`validation`] — Input validation (DNS label constraints for names)
