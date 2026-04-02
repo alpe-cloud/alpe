@@ -1,10 +1,10 @@
 //! Unified error hierarchy for the Alpe platform.
 //!
 //! Provides a layered error structure:
-//! - [`CoreError`] — top-level enum bridging all domain errors
-//! - [`ValidationError`] — input validation failures with field context
-//! - [`TransitionError`] — invalid state machine transitions
-//! - [`SovereigntyError`] — jurisdiction replication violations
+//! - `CoreError` — top-level enum bridging all domain errors
+//! - `ValidationError` — input validation failures with field context
+//! - `TransitionError` — invalid state machine transitions
+//! - `SovereigntyError` — jurisdiction replication violations
 
 /// Top-level error type for the `alpe-core` crate.
 ///
