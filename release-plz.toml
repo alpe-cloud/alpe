@@ -51,8 +51,8 @@ version_group = "alpe"
 
 [[package]]
 name = "alpe-test"
-version_group = "alpe"
-# Test harness is never released or published
+# Test harness is never released or published — excluded from version group
+# to avoid cargo update failures (alpe-api dev-depends on it with ^version)
 release = false
 publish = false
 git_release_enable = false
