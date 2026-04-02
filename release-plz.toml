@@ -61,18 +61,22 @@ git_tag_enable = false
 [[package]]
 name = "alpe-operator-db"
 version_group = "alpe"
+publish = false
 
 [[package]]
 name = "alpe-operator-storage"
 version_group = "alpe"
+publish = false
 
 [[package]]
 name = "alpe-operator-app"
 version_group = "alpe"
+publish = false
 
 [[package]]
 name = "alpe-substrate"
 version_group = "alpe"
+publish = false
 
 [changelog]
 # Protect breaking change commits — they always appear in the changelog
