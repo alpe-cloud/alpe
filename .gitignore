@@ -35,3 +35,4 @@ tarpaulin-report.html
 
 # Documentation build output (generated via `cargo doc`)
 # The actual built docs are in target/doc/ which is already covered by target/
+skills-lock.json

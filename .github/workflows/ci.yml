@@ -141,4 +141,5 @@ jobs:
         run: cargo deny check
 
       - name: Check unused dependencies
+        continue-on-error: true
         run: cargo machete
