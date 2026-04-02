@@ -15,6 +15,12 @@ unmaintained = "workspace"
 unsound = "all"
 # Warn on yanked crates
 yanked = "warn"
+# Known advisories with no fix available
+ignore = [
+    # rsa timing sidechannel (Marvin Attack) — transitive dep from jsonwebtoken's
+    # rust_crypto feature. We only use HMAC-SHA256 (symmetric), not RSA.
+    "RUSTSEC-2023-0071",
+]
 
 # ─── Licenses ────────────────────────────────────────────────────────────────
 [licenses]
