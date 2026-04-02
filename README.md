@@ -25,7 +25,7 @@ Alpe provides managed compute, database, and storage resources with built-in sov
 
 ## Prerequisites
 
-- [Rust](https://rustup.rs/) ≥ 1.85.0 (pinned via `rust-toolchain.toml`)
+- [Rust](https://rustup.rs/) >= 1.88.0 (pinned via `rust-toolchain.toml`)
 - [Docker](https://docs.docker.com/get-docker/) (for integration tests via testcontainers)
 
 ## Getting Started
