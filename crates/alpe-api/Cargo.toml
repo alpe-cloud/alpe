@@ -26,7 +26,7 @@ utoipa = { workspace = true }
 uuid = { workspace = true }
 
 [dev-dependencies]
-alpe-test = { path = "../alpe-test" }
+alpe-test = { workspace = true }
 reqwest = { workspace = true }
 
 [lints]

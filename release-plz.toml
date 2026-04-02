@@ -79,14 +79,14 @@ version_group = "alpe"
 protect_breaking_commits = true
 # Group commits by type in the changelog
 commit_parsers = [
-    { message = "^feat", group = "🚀 Features" },
-    { message = "^fix", group = "🐛 Bug Fixes" },
-    { message = "^docs", group = "📚 Documentation" },
-    { message = "^perf", group = "⚡ Performance" },
-    { message = "^refactor", group = "🔨 Refactoring" },
-    { message = "^test", group = "🧪 Testing" },
-    { message = "^ci", group = "⚙️ CI/CD" },
-    { message = "^chore", group = "🧹 Miscellaneous" },
-    { message = "^build", group = "🏗️ Build" },
+    { message = "^feat", group = "Features" },
+    { message = "^fix", group = "Bug Fixes" },
+    { message = "^docs", group = "Documentation" },
+    { message = "^perf", group = "Performance" },
+    { message = "^refactor", group = "Refactoring" },
+    { message = "^test", group = "Testing" },
+    { message = "^ci", group = "CI/CD" },
+    { message = "^chore", group = "Miscellaneous" },
+    { message = "^build", group = "Build" },
     { message = "^style", skip = true },
 ]
