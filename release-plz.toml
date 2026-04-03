@@ -22,8 +22,10 @@ git_tag_name = "{{ package }}-v{{ version }}"
 git_release_name = "{{ package }} v{{ version }}"
 # Run semver checks to catch accidental API breaking changes
 semver_check = false
-# When 0.x, treat feat commits as minor (not patch) bumps
-features_always_increment_minor = true
+# During 0.x alpha, feat commits are patch bumps (not minor).
+# Minor bumps are reserved for intentional breaking changes (feat!).
+# Switch to true when approaching 1.0 stability.
+features_always_increment_minor = false
 
 # Keep all crates at the same version for now.
 # When a commit touches any crate, all crates in the group get the same bump.
