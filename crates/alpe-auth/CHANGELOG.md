@@ -6,3 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.2.1](https://github.com/alpe-cloud/alpe/compare/alpe-auth-v0.2.0...alpe-auth-v0.2.1) - 2026-04-03
+
+### Features
+
+- *(auth)* implement JWT authentication and RBAC policy (relates to #7)

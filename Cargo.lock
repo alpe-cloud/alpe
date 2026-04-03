@@ -38,7 +38,7 @@ checksum = "683d7910e743518b0e34f1186f92494becacb047c7b6bf616c96772180fef923"
 
 [[package]]
 name = "alpe-api"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-auth",
  "alpe-core",
@@ -61,7 +61,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-auth"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "argon2",
@@ -81,7 +81,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-cli"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "alpe-sdk",
@@ -102,7 +102,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-core"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "chrono",
  "serde",
@@ -113,7 +113,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-operator-app"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "anyhow",
@@ -127,7 +127,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-operator-db"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "anyhow",
@@ -141,7 +141,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-operator-storage"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "anyhow",
@@ -155,7 +155,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-sdk"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "reqwest",
@@ -169,7 +169,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-substrate"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "anyhow",
@@ -182,7 +182,7 @@ dependencies = [
 
 [[package]]
 name = "alpe-test"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "alpe-core",
  "reqwest",

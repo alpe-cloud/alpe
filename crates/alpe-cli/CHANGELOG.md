@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1](https://github.com/alpe-cloud/alpe/compare/alpe-cli-v0.2.0...alpe-cli-v0.2.1) - 2026-04-03
+
+### CI/CD
+
+- *(release)* enable crates.io publishing and use workspace dep inheritance (relates to #2)
+
+### Features
+
+- *(workspace)* scaffold Cargo workspace with 10 crate stubs (relates to #1)
+
+### Miscellaneous
+
+- release v0.2.0
+
+### Refactoring
+
+- *(core)* apply project review fixes (relates to #3)
+
 ## [0.2.0](https://github.com/alpe-cloud/alpe/compare/alpe-cli-v0.1.0...alpe-cli-v0.2.0) - 2026-04-02
 
 ### CI/CD
