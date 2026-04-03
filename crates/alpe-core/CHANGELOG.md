@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1](https://github.com/alpe-cloud/alpe/compare/alpe-core-v0.2.0...alpe-core-v0.2.1) - 2026-04-03
+
+### Features
+
+- *(core)* implement resource model, jurisdiction types, and validation (relates to #5)
+
 ## [0.2.0](https://github.com/alpe-cloud/alpe/compare/alpe-core-v0.1.0...alpe-core-v0.2.0) - 2026-04-02
 
 ### Documentation
