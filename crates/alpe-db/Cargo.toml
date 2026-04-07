@@ -1,27 +1,25 @@
 [package]
-name = "alpe-test"
-description = "Shared test infrastructure for the Alpe platform (dev-dependency only)"
+name = "alpe-db"
+description = "Database migrations, connection pooling, and repository layer for the Alpe platform"
 edition.workspace = true
 version.workspace = true
 authors.workspace = true
 license.workspace = true
 repository.workspace = true
 rust-version.workspace = true
-publish = false
 
 [dependencies]
-alpe-core = { workspace = true }
-alpe-db = { workspace = true }
+alpe-core = { workspace = true, features = ["db"] }
 chrono = { workspace = true }
-reqwest = { workspace = true }
-serde = { workspace = true }
 serde_json = { workspace = true }
 sqlx = { workspace = true }
-testcontainers = { workspace = true }
-testcontainers-modules = { workspace = true }
-tokio = { workspace = true }
+thiserror = { workspace = true }
 tracing = { workspace = true }
 uuid = { workspace = true }
+
+[dev-dependencies]
+alpe-test = { workspace = true }
+tokio = { workspace = true }
 
 [lints]
 workspace = true
