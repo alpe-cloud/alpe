@@ -116,6 +116,40 @@ pub enum Jurisdiction {
     SE,
 }
 
+// ── sqlx integration (behind the `db` feature) ──
+//
+// Maps the Rust `Jurisdiction` enum to the Postgres `jurisdiction_type` enum.
+// We delegate to the `strum::Display` / `FromStr` impls so the Postgres values
+// ('EU', 'AT', 'BE', …) stay in sync with the Rust variants automatically.
+#[cfg(feature = "db")]
+mod db_impls {
+    use super::Jurisdiction;
+
+    impl sqlx::Type<sqlx::Postgres> for Jurisdiction {
+        fn type_info() -> sqlx::postgres::PgTypeInfo {
+            sqlx::postgres::PgTypeInfo::with_name("jurisdiction_type")
+        }
+    }
+
+    impl sqlx::Encode<'_, sqlx::Postgres> for Jurisdiction {
+        fn encode_by_ref(
+            &self,
+            buf: &mut sqlx::postgres::PgArgumentBuffer,
+        ) -> Result<sqlx::encode::IsNull, sqlx::error::BoxDynError> {
+            let s = self.to_string();
+            <String as sqlx::Encode<sqlx::Postgres>>::encode(s, buf)
+        }
+    }
+
+    impl<'r> sqlx::Decode<'r, sqlx::Postgres> for Jurisdiction {
+        fn decode(value: sqlx::postgres::PgValueRef<'r>) -> Result<Self, sqlx::error::BoxDynError> {
+            let s = <String as sqlx::Decode<sqlx::Postgres>>::decode(value)?;
+            s.parse::<Self>()
+                .map_err(|e| Box::new(e) as sqlx::error::BoxDynError)
+        }
+    }
+}
+
 impl Jurisdiction {
     /// Returns `true` if this jurisdiction represents a specific country
     /// (i.e. not the EU umbrella).

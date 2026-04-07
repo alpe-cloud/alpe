@@ -48,6 +48,10 @@ version_group = "alpe"
 publish = false
 
 [[package]]
+name = "alpe-db"
+version_group = "alpe"
+
+[[package]]
 name = "alpe-sdk"
 version_group = "alpe"
 

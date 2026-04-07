@@ -8,9 +8,14 @@ license.workspace = true
 repository.workspace = true
 rust-version.workspace = true
 
+[features]
+default = []
+db = ["dep:sqlx"]
+
 [dependencies]
 chrono = { workspace = true }
 serde = { workspace = true }
+sqlx = { workspace = true, optional = true }
 strum = { workspace = true }
 thiserror = { workspace = true }
 uuid = { workspace = true }

@@ -4,6 +4,7 @@ members = [
     "crates/alpe-api",
     "crates/alpe-auth",
     "crates/alpe-cli",
+    "crates/alpe-db",
     "crates/alpe-sdk",
     "crates/alpe-test",
     "crates/alpe-operator-db",
@@ -76,6 +77,7 @@ dirs = "6.0.0"
 # Internal crates (path for local dev, version for crates.io publishing)
 alpe-core = { path = "crates/alpe-core", version = "0.2.1" }
 alpe-auth = { path = "crates/alpe-auth", version = "0.2.1" }
+alpe-db = { path = "crates/alpe-db", version = "0.2.1" }
 alpe-sdk = { path = "crates/alpe-sdk", version = "0.2.1" }
 alpe-test = { path = "crates/alpe-test" }
 

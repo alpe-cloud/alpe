@@ -106,8 +106,24 @@ version = "0.2.1"
 dependencies = [
  "chrono",
  "serde",
+ "sqlx",
  "strum",
  "thiserror 2.0.18",
+ "uuid",
+]
+
+[[package]]
+name = "alpe-db"
+version = "0.2.1"
+dependencies = [
+ "alpe-core",
+ "alpe-test",
+ "chrono",
+ "serde_json",
+ "sqlx",
+ "thiserror 2.0.18",
+ "tokio",
+ "tracing",
  "uuid",
 ]
 
@@ -185,6 +201,8 @@ name = "alpe-test"
 version = "0.2.1"
 dependencies = [
  "alpe-core",
+ "alpe-db",
+ "chrono",
  "reqwest",
  "serde",
  "serde_json",
